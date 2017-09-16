@@ -22,9 +22,9 @@ RUN apk update && \
     rm -rf "/tmp/"*
 
 RUN echo $MAVEN_VERSION
-RUN curl http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz --output apache-maven-$MAVEN_VERSION-bin.tar.gz \
-    tar -zxvf apache-maven-$MAVEN_VERSION-bin.tar.gz \
-    rm apache-maven-$MAVEN_VERSION-bin.tar.gz \
+RUN curl http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz --output apache-maven-$MAVEN_VERSION-bin.tar.gz && \
+    tar -zxvf apache-maven-$MAVEN_VERSION-bin.tar.gz && \
+    rm apache-maven-$MAVEN_VERSION-bin.tar.gz && \
     mv apache-maven-$MAVEN_VERSION /usr/lib/mvn
 
 RUN rm -rf /var/cache/apk/* 
